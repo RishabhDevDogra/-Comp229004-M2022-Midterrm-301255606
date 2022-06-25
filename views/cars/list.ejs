@@ -1,0 +1,70 @@
+<%- include ../partials/header.ejs %>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <h1><%= title %></h1>
+        <br>
+        <div>
+            <!-- ------------------------ -->
+            <!-- Fix the ADD button below -->
+            <!-- ------------------------ -->
+            <a href="/cars/add" class="btn btn-primary align-self-end" role="button">
+                <i class="fas fa-plus-circle"></i> 
+                Add a new Car
+            </a>                
+        </div>
+        <br>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center">Make</th>
+                    <th class="text-center">Model</th>
+                    <th class="text-center">Year</th>
+                    <th class="text-center">kilometers</th>
+                    <th class="text-center">Doors</th>
+                    <th class="text-center">Seats</th>
+                    <th class="text-center">Color</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center" colspan="3">Actions</th>
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <% for(let i = 0; i < CarsList.length; i++) { %>
+                    <tr>
+                        <td class="text-center"><%= CarsList[i].make %></td>
+                        <td class="text-center"><%= CarsList[i].model %></td>
+                        <td class="text-center"><%= CarsList[i].year %></td>
+                        <td class="text-center"><%= CarsList[i].kilometers %></td>
+                        <td class="text-center"><%= CarsList[i].doors %></td>
+                        <td class="text-center"><%= CarsList[i].seats %></td>
+                        <td class="text-center"><%= CarsList[i].color %></td>
+                        <td class="text-center"><%= CarsList[i].price %></td>                        
+                        <td class="text-center">
+                            <a href="/cars/details/<%= CarsList[i]._id %>" class="btn btn-success btn-sm"> 
+                            <i class="fas fa-info"></i> </a>
+                        </td>
+                        <td class="text-center">
+                            <!-- ------------------------- -->
+                            <!-- Fix the EDIT button below -->
+                            <!-- ------------------------- -->
+                            <a href="/cars/edit/<%=CarsList[i]._id %>" class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                        <td class="text-center">
+                            <!-- --------------------------- -->
+                            <!-- Fix the DELETE button below -->
+                            <!-- --------------------------- -->
+                            <a href="/cars/delete/<%=CarsList[i]._id %>" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+  </main>
+  
+<%- include ../partials/footer.ejs %>
