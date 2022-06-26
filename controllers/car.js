@@ -1,4 +1,9 @@
+// Filename: appclient.js
+// Student: Rishabh Dev Dogra
+// StudentId: 301255606
+// Date: June, 25th 2022
 // create a reference to the model
+
 const { deleteModel } = require('mongoose');
 const { deleteOne } = require('../models/car');
 const car = require('../models/car');
@@ -119,14 +124,14 @@ module.exports.processEditPage = (req, res, next) => {
     // ADD YOUR CODE HERE
     let id = req.params.id;
 
-    let updatedCar = CarModel({
+    let updatedcar  = CarModel({
         _id: req.body.id,
         make: req.body.make,
         model: req.body.model,
         year: req.body.year,
         kilometers: req.body.kilometers,
         doors: req.body.doors,
-        seats: req.body.door,
+        seats: req.body.seats,
         color: req.body.color,
         price: req.body.price,
     });
