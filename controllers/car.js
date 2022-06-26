@@ -136,7 +136,7 @@ module.exports.processEditPage = (req, res, next) => {
         price: req.body.price,
     });
 
-    CarModel.updateOne({_id: id}, (err) => {
+    CarModel.updateOne(updatedcar, (err) => {
         if(err)
         {
             console.log(err);
